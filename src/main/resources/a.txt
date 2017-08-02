@@ -1,0 +1,2 @@
+test spring resource
+测试spring resource
