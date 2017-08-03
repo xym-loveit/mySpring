@@ -38,6 +38,11 @@
                   value="${url}"/>
     </bean>
 
+
+    <bean id="mailSender" class="com.xym.spring.event.MailSender"/>
+    <bean class="com.xym.spring.event.SendMailListener"/>
+
+
     <bean class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
