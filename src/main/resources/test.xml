@@ -17,11 +17,12 @@
     <bean id="target" class="com.xym.spring.aop.Waiter"/>
     <bean class="com.xym.spring.aop.GreetingBeforeAdvice" id="beforeAdvice"/>
     <bean class="com.xym.spring.aop.GreentingAfterAdvice" id="afterAdvice"/>
+    <bean class="com.xym.spring.aop.GreetingIntroductionInceptor" id="introductionInceptor"/>
 
     <bean id="waiter" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="target"/>
-        <property name="interceptorNames" value="beforeAdvice,afterAdvice"/>
-        <property name="proxyInterfaces" value="com.xym.spring.aop.WaiterI"/>
+        <property name="interceptorNames" value="introductionInceptor"/>
+        <property name="interfaces" value="com.xym.spring.aop.GreetingAble"/>
         <!--使用cglib代理-->
         <property name="proxyTargetClass" value="true"/>
     </bean>
