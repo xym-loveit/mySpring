@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="mySpring:war exploded">
-    <output-path>$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/artifacts/mySpring_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/mySpring</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -27,7 +27,14 @@
           <element id="library" level="project" name="Maven: com.google.guava:guava:19.0" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: cglib:cglib:3.2.4" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.1" />
+          <element id="library" level="project" name="Maven: org.apache.ant:ant:1.9.6" />
+          <element id="library" level="project" name="Maven: org.apache.ant:ant-launcher:1.9.6" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/mySpring/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="mySpring/web/Web" />
     </root>
