@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+    <context:component-scan base-package="com.xym.spring.transaction"/>
+
+
+    <context:property-placeholder location="classpath:jdbc.properties" file-encoding="UTF-8"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="username" value="${userName2}"/>
+        <property name="password" value="${password}"/>
+        <property name="url"
+                  value="${url}"/>
+    </bean>
+
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--最古老的事务织入器-->
+    <bean id="userServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="optimize" value="true"/><!--采用cglib动态代理-->
+        <property name="target" ref="userService"/><!--指定目标业务bean-->
+        <property name="transactionManager" ref="txManager"/><!--指定事务管理器-->
+        <property name="transactionAttributes">
+            <props>
+                <prop key="get*">PROPAGATION_REQUIRED,readOnly</prop><!--只读事务-->
+                <!--【+表示不回滚，-表示回滚】且spring规定”- 号“仅仅对检查性异常有效，而IOException为检查性异常-->
+                <prop key="*">PROPAGATION_REQUIRED,-IOException</prop><!--可写事务-->
+                <!--spring默认运行期异常回滚，我们通过+号设置改变其行为，让其提交-->
+                <prop key="updateUser">PROPAGATION_REQUIRED,+IllegalArgumentException</prop><!--可写事务-->
+            </props>
+        </property>
+    </bean>
+
+</beans>
