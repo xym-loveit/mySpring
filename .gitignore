@@ -1,0 +1,5 @@
+/target/classes
+/target/test-classes/com/xym/spring/service/*.class
+/.idea/libraries
+/target/test-classes/xym/spring/*.class
+/.idea
