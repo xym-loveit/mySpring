@@ -14,7 +14,7 @@ import java.util.Date;
  * @author xym
  */
 @Repository
-//@Transactional(propagation = Propagation.REQUIRED)//ä½¿ç”¨æ³¨è§£æä¾›äº‹åŠ¡
+//@Transactional(propagation = Propagation.REQUIRED)//Ê¹ÓÃ×¢½âÌá¹©ÊÂÎñ
 public class UserDaoImpl implements UserDao {
 
     @Autowired
@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
         System.out.println(update);
     }
 
-    //ä½¿ç”¨æ³¨è§£æä¾›äº‹åŠ¡,è¦†ç›–ç±»çº§åˆ«
+    //Ê¹ÓÃ×¢½âÌá¹©ÊÂÎñ,¸²¸ÇÀà¼¶±ğ
     @Transactional(readOnly = false)
     @Override
     public void updateUser() {
@@ -43,7 +43,7 @@ public class UserDaoImpl implements UserDao {
         return user_name;
     }
 
-    //ä½¿ç”¨æ³¨è§£æä¾›äº‹åŠ¡,è¦†ç›–ç±»çº§åˆ«
+    //Ê¹ÓÃ×¢½âÌá¹©ÊÂÎñ,¸²¸ÇÀà¼¶±ğ
     @Transactional(readOnly = true)
     @Override
     public Integer getAge() {
