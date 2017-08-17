@@ -36,6 +36,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!--自动扫描@Transaction注解，织入事务-->
     <tx:annotation-driven transaction-manager="txManager"/>
 
 </beans>
