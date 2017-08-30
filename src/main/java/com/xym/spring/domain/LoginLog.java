@@ -1,17 +1,27 @@
 package com.xym.spring.domain;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
+import com.xym.spring.xstream.DateConvert;
+
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Administrator on 2017/7/28.
  */
+@XStreamAlias("LoginLog")
 public class LoginLog implements Serializable {
 
 
     private int loginLogId;
+
+    @XStreamAsAttribute
+    @XStreamAlias("LID")
     private int userId;
     private String ip;
+    @XStreamConverter(DateConvert.class)
     private Date loginDate;
 
     public int getLoginLogId() {
