@@ -1,0 +1,19 @@
+<com.xym.spring.domain.User>
+  <userId>1</userId>
+  <username>xstream</username>
+  <credits>0</credits>
+  <logs>
+    <com.xym.spring.domain.LoginLog>
+      <loginLogId>0</loginLogId>
+      <userId>0</userId>
+      <ip>192.168.2.1</ip>
+      <loginDate>2017-08-30 14:24:18.240 UTC</loginDate>
+    </com.xym.spring.domain.LoginLog>
+    <com.xym.spring.domain.LoginLog>
+      <loginLogId>0</loginLogId>
+      <userId>0</userId>
+      <ip>192.168.2.100</ip>
+      <loginDate>2017-08-30 14:24:18.240 UTC</loginDate>
+    </com.xym.spring.domain.LoginLog>
+  </logs>
+</com.xym.spring.domain.User>

@@ -1,0 +1,8 @@
+<com.xym.spring.domain.User>
+  <userId>2</userId>
+  <username>xstream2</username>
+  <password>111111</password>
+  <credits>0</credits>
+  <lastIp>192.168.2.100</lastIp>
+  <logs/>
+</com.xym.spring.domain.User>
