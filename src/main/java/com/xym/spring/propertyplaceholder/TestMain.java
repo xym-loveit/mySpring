@@ -1,7 +1,7 @@
 package com.xym.spring.propertyplaceholder;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.web.context.support.XmlWebApplicationContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * desc
@@ -10,11 +10,10 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
  */
 public class TestMain {
     public static void main(String[] args) {
-        XmlWebApplicationContext xmlWebApplicationContext = new XmlWebApplicationContext();
-        xmlWebApplicationContext.setConfigLocation("applicationContext.xml");
-
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+/*
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyDataSource.class);
-        applicationContext.setParent(applicationContext);
+        applicationContext.setParent(xmlWebApplicationContext);*/
 
         MyDataSource myDataSource = (MyDataSource) applicationContext.getBean("myDataSource");
         System.out.println("myDataSource" + myDataSource);

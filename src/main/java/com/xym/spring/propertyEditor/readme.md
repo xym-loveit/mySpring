@@ -1,1 +1,2 @@
-通过PropertyEditorSupport实现自定义编辑器
+通过PropertyEditorSupport实现自定义编辑器  
+属性值加解密参见 企业应用开发实践--page169
